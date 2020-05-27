@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/addExpense">
+
+    <fragment
+        android:id="@+id/addExpense"
+        android:name="com.jp.gym.ui.dashboard.expense.view.AddExpenseFragment"
+        android:label="AddExpenseFragment"
+        tools:layout="@layout/fragment_add_expense" />
+<!--    <fragment-->
+<!--        android:id="@+id/addReminder"-->
+<!--        android:name="com.jp.gym.ui.dashboard.reminder.view.AddReminderFragment"-->
+<!--        android:label="AddReminderFragment"-->
+<!--        tools:layout="@layout/fragment_add_reminder" />-->
+</navigation>

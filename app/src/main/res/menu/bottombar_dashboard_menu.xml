@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/addExpense"
+        android:icon="@drawable/ic_menu_expense"
+        android:title="@string/gym_expenses"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/expenseList"
+        android:icon="@drawable/ic_menu_expenselist"
+        android:title="@string/expense_list"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/gymLocation"
+        android:icon="@drawable/ic_menu_gymlocation"
+        android:title="@string/gym_location"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/memberList"
+        android:icon="@drawable/ic_menu_memberlist"
+        android:title="@string/member_list"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/addReminder"
+        android:icon="@drawable/ic_menu_reminder"
+        android:title="@string/add_reminder"
+        app:showAsAction="always"/>
+
+
+    <item
+        android:id="@+id/logOut"
+        android:icon="@drawable/ic_menu_logout"
+        android:title="@string/logout"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/forgotPassword"
+        android:icon="@drawable/ic_menu_forgotpass"
+        android:title="@string/change_password"
+        app:showAsAction="ifRoom"/>
+
+
+</menu>

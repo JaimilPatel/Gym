@@ -14,6 +14,7 @@ import com.jp.gym.R
 import com.jp.gym.base.GymAppFragment
 import com.jp.gym.databinding.FragmentLoginBinding
 import com.jp.gym.ui.auth.viewmodel.LoginViewModel
+import com.jp.gym.ui.dashboard.DashboardActivity
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : GymAppFragment() {
@@ -64,6 +65,8 @@ class LoginFragment : GymAppFragment() {
                 Log.i(
                     TAG,"${FirebaseAuth.getInstance().currentUser?.displayName}!"
                 )
+                val intent = Intent(context,DashboardActivity::class.java)
+                startActivity(intent)
             } else {
                 Log.i(TAG,"${response?.error?.errorCode}")
             }

@@ -2,4 +2,20 @@
     <string name="app_name">Gym</string>
     <string name="str_network_alert">Please Switch on Network</string>
     <string name="str_login_with_firebaseui">Login With Firebase UI</string>
+
+    <string name="member_list">Memberlist</string>
+    <string name="gym_expenses">Gym Expenses</string>
+    <string name="add_member">Add Member</string>
+    <string name="gym_location">Gym Location</string>
+    <string name="expense_list">Expense List</string>
+    <string name="add_reminder">Add Reminder</string>
+    <string name="logout">Logout</string>
+    <string name="change_password">Change Password</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="enter_trainer_name">Enter Trainer Name</string>
+    <string name="enter_purchase_item">Enter Purchase Item</string>
+    <string name="enter_money">Enter Money</string>
+    <string name="enter_event_location">Enter Event Location</string>
+    <string name="enter_event_description">Enter Event Description</string>
+    <string name="enter_event_title">Enter Event Title</string>
 </resources>
