@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Gym</string>
+    <string name="str_network_alert">Please Switch on Network</string>
+    <string name="str_login_with_firebaseui">Login With Firebase UI</string>
+</resources>
