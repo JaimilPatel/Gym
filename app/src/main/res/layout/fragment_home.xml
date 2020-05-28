@@ -1,0 +1,376 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/membersInfoLyt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/welcome"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTotalMembers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvUserName"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/total_members"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+
+                <TextView
+                    android:id="@+id/tvCountOfMembers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvTotalMembers"
+                    android:fontFamily="sans-serif"
+                    android:text="5"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTotalMembers" />
+
+                <TextView
+                    android:id="@+id/tvDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvCountOfMembers"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/data_time"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountOfMembers" />
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp"
+                    android:src="@drawable/profile_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/middleLyt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/membersInfoLyt">
+
+                <GridLayout
+                    android:id="@+id/gridLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:columnOrderPreserved="false"
+                    android:rowCount="5"
+                    app:layout_constraintEnd_toEndOf="@+id/middleLyt"
+                    app:layout_constraintStart_toStartOf="@+id/middleLyt"
+                    app:layout_constraintTop_toTopOf="@+id/middleLyt">
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.MaterialComponents.CardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@color/white"
+                        app:cardCornerRadius="@dimen/_12sdp"
+                        app:cardElevation="6dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/activeUserInfoLyt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_20sdp">
+
+                            <TextView
+                                android:id="@+id/tvActiveCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/active_user"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="@+id/activeUserInfoLyt"
+                                app:layout_constraintStart_toStartOf="@+id/activeUserInfoLyt"
+                                app:layout_constraintTop_toTopOf="@+id/activeUserInfoLyt" />
+
+                            <TextView
+                                android:id="@+id/tvCountActive"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:fontFamily="sans-serif"
+                                android:text="0"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="normal"
+                                app:layout_constraintEnd_toEndOf="@+id/activeUserInfoLyt"
+                                app:layout_constraintStart_toStartOf="@+id/activeUserInfoLyt"
+                                app:layout_constraintTop_toBottomOf="@+id/tvActiveCount" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.MaterialComponents.CardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@color/white"
+                        app:cardCornerRadius="@dimen/_12sdp"
+                        app:cardElevation="6dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/inActiveUserInfoLyt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_20sdp">
+
+                            <TextView
+                                android:id="@+id/tvInActiveCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/inactive_user"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="@+id/inActiveUserInfoLyt"
+                                app:layout_constraintStart_toStartOf="@+id/inActiveUserInfoLyt"
+                                app:layout_constraintTop_toTopOf="@+id/inActiveUserInfoLyt" />
+
+                            <TextView
+                                android:id="@+id/tvCountInActive"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:fontFamily="sans-serif"
+                                android:text="0"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="normal"
+                                app:layout_constraintEnd_toEndOf="@+id/inActiveUserInfoLyt"
+                                app:layout_constraintStart_toStartOf="@+id/inActiveUserInfoLyt"
+                                app:layout_constraintTop_toBottomOf="@+id/tvInActiveCount" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.MaterialComponents.CardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@color/white"
+                        app:cardCornerRadius="@dimen/_12sdp"
+                        app:cardElevation="6dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/receivePaymentLyt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_20sdp">
+
+                            <TextView
+                                android:id="@+id/tvReceive"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/rec_payment"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="@+id/receivePaymentLyt"
+                                app:layout_constraintStart_toStartOf="@+id/receivePaymentLyt"
+                                app:layout_constraintTop_toTopOf="@+id/receivePaymentLyt" />
+
+                            <TextView
+                                android:id="@+id/tvReceiveAmount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:fontFamily="sans-serif"
+                                android:text="0"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="normal"
+                                app:layout_constraintEnd_toEndOf="@+id/receivePaymentLyt"
+                                app:layout_constraintStart_toStartOf="@+id/receivePaymentLyt"
+                                app:layout_constraintTop_toBottomOf="@+id/tvReceive" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.MaterialComponents.CardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@color/white"
+                        app:cardCornerRadius="@dimen/_12sdp"
+                        app:cardElevation="6dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/bottomRightContentLyt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_20sdp">
+
+                            <TextView
+                                android:id="@+id/tvDue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/due_payment"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="@+id/bottomRightContentLyt"
+                                app:layout_constraintStart_toStartOf="@+id/bottomRightContentLyt"
+                                app:layout_constraintTop_toTopOf="@+id/bottomRightContentLyt" />
+
+                            <TextView
+                                android:id="@+id/tvDueAmount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:fontFamily="sans-serif"
+                                android:text="0"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="normal"
+                                app:layout_constraintEnd_toEndOf="@+id/bottomRightContentLyt"
+                                app:layout_constraintStart_toStartOf="@+id/bottomRightContentLyt"
+                                app:layout_constraintTop_toBottomOf="@+id/tvDue" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </GridLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/bottomLyt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.MaterialComponents.CardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@color/white"
+                        app:cardCornerRadius="@dimen/_12sdp"
+                        app:cardElevation="@dimen/_6sdp"
+                        app:layout_constraintEnd_toEndOf="@id/bottomLyt"
+                        app:layout_constraintStart_toStartOf="@+id/bottomLyt"
+                        app:layout_constraintTop_toTopOf="@id/bottomLyt">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/totalExpenseLyt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp">
+
+                            <TextView
+                                android:id="@+id/tvTotalExpense"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/inactive_user"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="@+id/totalExpenseLyt"
+                                app:layout_constraintStart_toStartOf="@+id/totalExpenseLyt"
+                                app:layout_constraintTop_toTopOf="@+id/totalExpenseLyt" />
+
+                            <TextView
+                                android:id="@+id/tvTotalValueExpense"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:fontFamily="sans-serif"
+                                android:text="0"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="normal"
+                                app:layout_constraintEnd_toEndOf="@+id/totalExpenseLyt"
+                                app:layout_constraintStart_toStartOf="@+id/totalExpenseLyt"
+                                app:layout_constraintTop_toBottomOf="@+id/tvTotalExpense" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

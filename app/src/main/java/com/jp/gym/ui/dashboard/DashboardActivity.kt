@@ -21,16 +21,9 @@ class DashboardActivity : GymAppActivity() {
     }
 
     override fun initializeViewComponents() {
-        setSupportActionBar(bottomAppBar)
-        val navController = Navigation.findNavController(this, R.id.navDashboardHostFragment)
-        bottomAppBar.replaceMenu(R.menu.bottombar_dashboard_menu)
-        navController.setGraph(R.navigation.nav_dashboard_graph)
-        bottomAppBar.setupWithNavController(navController)
-
-// Connect MenuItems to the NavController
-        bottomAppBar.setOnMenuItemClickListener {  menuItem ->
-            menuItem.onNavDestinationSelected(navController)
-        }
+        val navControl = findNavController(R.id.navDashboardHostFragment)
+        navControl.setGraph(R.navigation.nav_dashboard_graph)
+        mainBottomNavigation?.setupWithNavController(navControl)
     }
 
     override fun postDataBinding(binding: ViewDataBinding?) {

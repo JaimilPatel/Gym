@@ -18,4 +18,12 @@
     <string name="enter_event_location">Enter Event Location</string>
     <string name="enter_event_description">Enter Event Description</string>
     <string name="enter_event_title">Enter Event Title</string>
+    <string name="home">Home</string>
+    <string name="total_members">Total Members</string>
+    <string name="welcome">Welcome</string>
+    <string name="data_time">Data,Time</string>
+    <string name="active_user">Active User</string>
+    <string name="inactive_user">inActive User</string>
+    <string name="due_payment">Due Payment</string>
+    <string name="rec_payment">Rec. Payment</string>
 </resources>

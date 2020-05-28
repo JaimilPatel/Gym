@@ -10,22 +10,28 @@
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/expenseList"
-        android:icon="@drawable/ic_menu_expenselist"
-        android:title="@string/expense_list"
+        android:id="@+id/home"
+        android:icon="@drawable/ic_menu_dashboard"
+        android:title="@string/home"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/gymLocation"
-        android:icon="@drawable/ic_menu_gymlocation"
-        android:title="@string/gym_location"
-        app:showAsAction="always"/>
+<!--    <item-->
+<!--        android:id="@+id/expenseList"-->
+<!--        android:icon="@drawable/ic_menu_expenselist"-->
+<!--        android:title="@string/expense_list"-->
+<!--        app:showAsAction="always"/>-->
 
-    <item
-        android:id="@+id/memberList"
-        android:icon="@drawable/ic_menu_memberlist"
-        android:title="@string/member_list"
-        app:showAsAction="always"/>
+<!--    <item-->
+<!--        android:id="@+id/gymLocation"-->
+<!--        android:icon="@drawable/ic_menu_gymlocation"-->
+<!--        android:title="@string/gym_location"-->
+<!--        app:showAsAction="always"/>-->
+
+<!--    <item-->
+<!--        android:id="@+id/memberList"-->
+<!--        android:icon="@drawable/ic_menu_memberlist"-->
+<!--        android:title="@string/member_list"-->
+<!--        app:showAsAction="always"/>-->
 
     <item
         android:id="@+id/addReminder"
@@ -34,17 +40,17 @@
         app:showAsAction="always"/>
 
 
-    <item
-        android:id="@+id/logOut"
-        android:icon="@drawable/ic_menu_logout"
-        android:title="@string/logout"
-        app:showAsAction="ifRoom"/>
+<!--    <item-->
+<!--        android:id="@+id/logOut"-->
+<!--        android:icon="@drawable/ic_menu_logout"-->
+<!--        android:title="@string/logout"-->
+<!--        app:showAsAction="ifRoom"/>-->
 
-    <item
-        android:id="@+id/forgotPassword"
-        android:icon="@drawable/ic_menu_forgotpass"
-        android:title="@string/change_password"
-        app:showAsAction="ifRoom"/>
+<!--    <item-->
+<!--        android:id="@+id/forgotPassword"-->
+<!--        android:icon="@drawable/ic_menu_forgotpass"-->
+<!--        android:title="@string/change_password"-->
+<!--        app:showAsAction="ifRoom"/>-->
 
 
 </menu>
