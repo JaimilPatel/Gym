@@ -15,17 +15,17 @@
         android:title="@string/home"
         app:showAsAction="always"/>
 
-<!--    <item-->
-<!--        android:id="@+id/expenseList"-->
-<!--        android:icon="@drawable/ic_menu_expenselist"-->
-<!--        android:title="@string/expense_list"-->
-<!--        app:showAsAction="always"/>-->
+    <item
+        android:id="@+id/expenseList"
+        android:icon="@drawable/ic_menu_expenselist"
+        android:title="@string/expense_list"
+        app:showAsAction="always"/>
 
-<!--    <item-->
-<!--        android:id="@+id/gymLocation"-->
-<!--        android:icon="@drawable/ic_menu_gymlocation"-->
-<!--        android:title="@string/gym_location"-->
-<!--        app:showAsAction="always"/>-->
+    <item
+        android:id="@+id/gymLocation"
+        android:icon="@drawable/ic_menu_gymlocation"
+        android:title="@string/gym_location"
+        app:showAsAction="always"/>
 
 <!--    <item-->
 <!--        android:id="@+id/memberList"-->

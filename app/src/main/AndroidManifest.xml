@@ -10,16 +10,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBuPidsYRNf6hkYbQeX9Po1TqioTvA_Wn4"/>
         <activity android:name=".ui.dashboard.DashboardActivity"
-            android:theme="@style/AppCustomTheme"/>
-        <activity
-            android:name=".ui.splash.view.SplashActivity"
             android:theme="@style/AppCustomTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.splash.view.SplashActivity"
+            android:theme="@style/AppCustomTheme">
+
         </activity>
         <activity
             android:name=".ui.auth.LoginActivity"

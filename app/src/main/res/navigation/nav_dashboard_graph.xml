@@ -19,4 +19,14 @@
         android:name="com.jp.gym.ui.dashboard.home.view.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/gymLocation"
+        android:name="com.jp.gym.ui.dashboard.location.GymLocationFragment"
+        android:label="GymLocationFragment"
+        tools:layout="@layout/fragment_gym_location" />
+    <fragment
+        android:id="@+id/expenseList"
+        android:name="com.jp.gym.ui.dashboard.expense.view.ExpenseListFragment"
+        android:label="ExpenseListFragment"
+        tools:layout="@layout/fragment_expense_list" />
 </navigation>
