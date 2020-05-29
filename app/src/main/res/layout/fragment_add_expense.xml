@@ -72,6 +72,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/enter_trainer_name"
+                            android:text="@={viewModel.trainerName}"
                             android:inputType="text"
                             android:textAllCaps="true" />
 
@@ -92,6 +93,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/enter_purchase_item"
+                            android:text="@={viewModel.itemName}"
                             android:inputType="text"
                             android:textAllCaps="true" />
 
@@ -112,6 +114,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/enter_money"
+                            android:text="@={viewModel.expenseMoney}"
                             android:inputType="number" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -127,6 +130,7 @@
                         android:textAllCaps="true"
                         android:textColor="@color/white"
                         android:theme="@style/TransparentTheme"
+                        android:onClick="@{(v)->viewModel.onClickAddExpense(v)}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/moneyLyt" />

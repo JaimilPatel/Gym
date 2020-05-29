@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.jp.gym.R
 import com.jp.gym.base.GymAppFragment
@@ -17,6 +19,7 @@ class ExpenseListFragment : GymAppFragment() {
     lateinit var mFragmentBinding: FragmentExpenseListBinding
     private lateinit var expenseListAdapter: ExpenseAdapter
     private val mViewModel by viewModels<ExpenseListViewModel>()
+    lateinit var mLayoutManager: LinearLayoutManager
 
     override fun layoutResource(): Int {
         return R.layout.fragment_expense_list
@@ -35,7 +38,16 @@ class ExpenseListFragment : GymAppFragment() {
 
     override fun initializeComponents(view: View?) {
         initUI()
-
+        mViewModel.expenseListLiveData.observe(this, Observer {
+            it?.let {
+                if (it.size > 0) {
+                    mLayoutManager = LinearLayoutManager(context)
+                    rvExpense?.layoutManager = mLayoutManager
+                    expenseListAdapter.setExpenseList(it)
+                    rvExpense?.adapter = expenseListAdapter
+                }
+            }
+        })
     }
 
     private fun initUI() {

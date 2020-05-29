@@ -31,6 +31,7 @@
                 android:fontFamily="sans-serif"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                android:text="@{expenseItemInfo.trainer_name}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -42,6 +43,7 @@
                 android:fontFamily="sans-serif"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                android:text="@{expenseItemInfo.item_name}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvReTrainer" />
@@ -52,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/black"
+                android:text="@{expenseItemInfo.item_money}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvReItemName" />
@@ -62,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/black"
+                android:text="@{expenseItemInfo.expense_date}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvReMoney" />
