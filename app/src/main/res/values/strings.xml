@@ -28,4 +28,5 @@
     <string name="search_member">Search Member</string>
     <string name="expense_list">Expense List</string>
     <string name="search_expense">Search Expense</string>
+    <string name="expenses">Expenses</string>
 </resources>

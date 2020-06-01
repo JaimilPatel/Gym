@@ -1,5 +1,8 @@
 package com.jp.gym.ui.splash.view
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.View
@@ -8,12 +11,10 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
-import com.jp.gym.GymApp
 import com.jp.gym.R
 import com.jp.gym.base.GymAppActivity
 import com.jp.gym.databinding.ActivitySplashBinding
 import com.jp.gym.ui.auth.LoginActivity
-import com.jp.gym.utils.toast
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : GymAppActivity() {
@@ -58,45 +59,22 @@ class SplashActivity : GymAppActivity() {
 
         //Start Animation
 
-        ivSplashLogo.startAnimation(animation1)
-
-        //Listener For Animation
-
-        animation1.setAnimationListener(object : Animation.AnimationListener {
-
-            override fun onAnimationRepeat(p0: Animation?) {
+        val animator = ObjectAnimator.ofFloat(ivSplashLogo, View.ROTATION, -360f, 0f)
+        animator.duration = 1000
+        animator.addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationStart(animation: Animator?) {
+                //  ivSplashLogo.isEnabled = false
             }
 
-            override fun onAnimationEnd(p0: Animation?) {
-                ivSplashLogo.startAnimation(animation2)
+            override fun onAnimationEnd(animation: Animator?) {
+                val i = Intent(baseContext, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+                startActivity(i)
+                finish()
             }
-
-            override fun onAnimationStart(p0: Animation?) {
-            }
-
         })
+        animator.start()
 
-        animation2.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationRepeat(p0: Animation?) {
-            }
-
-            override fun onAnimationEnd(p0: Animation?) {
-
-                ivSplashLogo.startAnimation(animation3)
-
-                // Intent Pass To Next Activity
-
-                    val i = Intent(baseContext, LoginActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
-                    startActivity(i)
-                    finish()
-            }
-
-            override fun onAnimationStart(p0: Animation?) {
-
-            }
-
-        })
     }
 
 }
