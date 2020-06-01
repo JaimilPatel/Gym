@@ -13,7 +13,8 @@ class AddExpenseViewModel(application: Application) :
     val trainerName = MutableLiveData<String>()
     val itemName = MutableLiveData<String>()
     val expenseMoney = MutableLiveData<String>()
-    private var repo = ExpenseRepository()
+    var context = application
+    private var repo = ExpenseRepository(context)
 
     init {
         trainerName.postValue("")

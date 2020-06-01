@@ -11,6 +11,8 @@ import com.google.android.gms.maps.model.*
 import com.jp.gym.R
 import com.jp.gym.base.GymAppFragment
 import com.jp.gym.databinding.FragmentGymLocationBinding
+import com.jp.gym.ui.dashboard.DashboardActivity
+import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class GymLocationFragment : GymAppFragment(), GoogleMap.OnMarkerClickListener {
 
@@ -32,6 +34,9 @@ class GymLocationFragment : GymAppFragment(), GoogleMap.OnMarkerClickListener {
     }
 
     override fun initializeComponents(view: View?) {
+
+
+
         mapFragment = SupportMapFragment.newInstance()
 
         //OnMapReady Method Logic
