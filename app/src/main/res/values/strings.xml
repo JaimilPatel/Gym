@@ -3,9 +3,8 @@
     <string name="str_network_alert">Please Switch on Network</string>
     <string name="str_login_with_firebaseui">Login With Firebase UI</string>
 
-    <string name="member_list">Memberlist</string>
+    <string name="member_list">Member List</string>
     <string name="gym_expenses">Gym Expenses</string>
-    <string name="add_member">Add Member</string>
     <string name="gym_location">Gym Location</string>
     <string name="add_reminder">Add Reminder</string>
     <string name="logout">Logout</string>
@@ -29,4 +28,20 @@
     <string name="expense_list">Expense List</string>
     <string name="search_expense">Search Expense</string>
     <string name="expenses">Expenses</string>
+    <string name="trainer_name">Trainer :&#160; &#160;</string>
+    <string name="item_name">Item Name :&#160; &#160;</string>
+    <string name="expense">Expense :&#160;&#160; </string>
+    <string name="date">Date : &#160;&#160;</string>
+    <string name="total_expense">Total Expense</string>
+    <string name="first_name">First Name :&#160; &#160;</string>
+    <string name="last_name">Last Name</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="enter_batch">Enter Batch</string>
+    <string name="double_tap_for_1_3_5_months_plan_only">Double_tap_for_1_3_5_months_plan_only</string>
+    <string name="amount">Amount</string>
+    <string name="payment_status">Payment Status</string>
+    <string name="add_member">Add Member</string>
+    <string name="email">Email :&#160; &#160;</string>
+    <string name="batch">Batch :&#160; &#160;</string>
 </resources>

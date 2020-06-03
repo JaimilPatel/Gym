@@ -2,7 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+<variable
+    name="viewModel"
+    type="com.jp.gym.ui.dashboard.home.viewmodel.HomeViewModel" />
     </data>
 
     <ScrollView
@@ -338,7 +340,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif"
-                                android:text="@string/inactive_user"
+                                android:text="@string/total_expense"
                                 android:textColor="@color/blue"
                                 android:textSize="@dimen/_15ssp"
                                 android:textStyle="bold"
@@ -352,7 +354,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:fontFamily="sans-serif"
-                                android:text="0"
+                                android:text="@{String.valueOf(viewModel.totalExpense)}"
                                 android:textColor="@color/blue"
                                 android:textSize="@dimen/_15ssp"
                                 android:textStyle="normal"

@@ -1,23 +1,20 @@
-package com.jp.gym.ui.dashboard.home.view
+package com.jp.gym.ui.dashboard.member.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.jp.gym.R
 import com.jp.gym.base.GymAppFragment
-import com.jp.gym.databinding.FragmentHomeBinding
-import com.jp.gym.ui.dashboard.home.viewmodel.HomeViewModel
+import com.jp.gym.databinding.FragmentAddMemberBinding
+import com.jp.gym.ui.dashboard.member.viewmodel.AddMemberViewModel
 
-class HomeFragment : GymAppFragment() {
-
-    private lateinit var mFragmentBinding: FragmentHomeBinding
-    private val mViewModel: HomeViewModel by viewModels()
+class AddMemberFragment : GymAppFragment() {
+    private lateinit var mFragmentBinding: FragmentAddMemberBinding
+    private val mViewModel: AddMemberViewModel by viewModels()
 
     override fun layoutResource(): Int {
-        return R.layout.fragment_home
+        return R.layout.fragment_add_member
     }
 
     override fun preDataBinding(arguments: Bundle?) {
@@ -25,7 +22,7 @@ class HomeFragment : GymAppFragment() {
     }
 
     override fun postDataBinding(binding: ViewDataBinding): ViewDataBinding {
-        mFragmentBinding = binding as FragmentHomeBinding
+        mFragmentBinding = binding as FragmentAddMemberBinding
         mFragmentBinding.viewModel = mViewModel
         mFragmentBinding.lifecycleOwner = this
         return mFragmentBinding

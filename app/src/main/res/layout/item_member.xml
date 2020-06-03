@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
-        <variable
-            name="expenseItemInfo"
-            type="com.jp.gym.ui.dashboard.expense.model.Expense" />
+<variable
+    name="memberItemInfo"
+    type="com.jp.gym.ui.dashboard.member.model.Member" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -15,61 +14,56 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
         android:background="@color/white"
-        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_12sdp"
         app:cardElevation="@dimen/_5sdp"
-        app:contentPadding="@dimen/_5sdp">
+        app:contentPadding="@dimen/_10sdp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvReTrainer"
-                android:layout_width="match_parent"
+                android:id="@+id/tvFirstName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:text="@{@string/trainer_name + expenseItemInfo.trainer_name}"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{@string/first_name + memberItemInfo.firstName}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvReItemName"
-                android:layout_width="match_parent"
+                android:id="@+id/tvLastName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/black"
-                android:text="@{@string/item_name + expenseItemInfo.item_name}"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{@string/email + memberItemInfo.emailId}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvReTrainer" />
+                app:layout_constraintTop_toBottomOf="@+id/tvFirstName" />
 
             <TextView
-                android:id="@+id/tvReMoney"
-                android:layout_width="match_parent"
+                android:id="@+id/tvBatch"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/black"
-                android:text="@{@string/expense + expenseItemInfo.item_money}"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{@string/batch + memberItemInfo.batch}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvReItemName" />
+                app:layout_constraintTop_toBottomOf="@+id/tvLastName" />
 
-            <TextView
-                android:id="@+id/tvReDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:textColor="@color/black"
-                android:text="@{@string/date + expenseItemInfo.expense_date}"
+            <ImageView
+                android:id="@+id/ivPaymentStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_red_dot_24dp"
+                android:layout_margin="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvReMoney" />
-
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </com.google.android.material.card.MaterialCardView>
 </layout>

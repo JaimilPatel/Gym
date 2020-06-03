@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.jp.gym.ui.dashboard.expense.viewmodel.ExpenseListViewModel" />
+            type="com.jp.gym.ui.dashboard.member.viewmodel.MemberListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,7 +39,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="@string/expense_list"
+                        android:text="@string/member_list"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_20ssp"
                         android:textStyle="bold" />
@@ -70,7 +70,7 @@
                 app:layout_constraintTop_toTopOf="@+id/searchBar">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etSearchExpense"
+                    android:id="@+id/etSearchMember"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/search_expense"
@@ -81,24 +81,23 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvExpense"
+            android:id="@+id/rvMember"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            app:spanCount="2"
             android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchBar" />
 
-<!--        <ProgressBar-->
-<!--            android:id="@+id/progress_horizontal"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <ProgressBar-->
+        <!--            android:id="@+id/progress_horizontal"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

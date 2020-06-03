@@ -20,16 +20,15 @@
         <activity
             android:name=".ui.splash.view.SplashActivity"
             android:theme="@style/AppCustomTheme">
-
-        </activity>
-        <activity
-            android:name=".ui.auth.LoginActivity"
-            android:theme="@style/AppCustomTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:theme="@style/AppCustomTheme">
         </activity>
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
