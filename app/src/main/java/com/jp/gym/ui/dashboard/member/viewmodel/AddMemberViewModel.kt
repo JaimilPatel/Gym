@@ -17,6 +17,7 @@ class AddMemberViewModel(application: Application) : GymAppViewModel(application
     var amount = MutableLiveData<String>()
     var paymentStatus = MutableLiveData<String>()
     var repo = MemberRepository(application)
+    var navigateTo = MutableLiveData<Boolean>()
 
     init {
         firstName.postValue("")
@@ -27,6 +28,7 @@ class AddMemberViewModel(application: Application) : GymAppViewModel(application
         membershipPlan.postValue("")
         amount.postValue("")
         paymentStatus.postValue("")
+        navigateTo.postValue(false)
     }
 
     fun onClickAddMember(view: View) {
@@ -42,6 +44,7 @@ class AddMemberViewModel(application: Application) : GymAppViewModel(application
         membershipPlan.postValue("")
         amount.postValue("")
         paymentStatus.postValue("")
+        navigateTo.postValue(true)
     }
 
     private fun addMember(

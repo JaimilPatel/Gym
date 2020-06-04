@@ -10,8 +10,9 @@
         android:label="AddExpenseFragment"
         tools:layout="@layout/fragment_add_expense" >
         <action
-            android:id="@+id/action_addExpense_to_expenseList"
-            app:destination="@id/expenseList" />
+            android:id="@+id/action_addExpense_to_expenseList2"
+            app:destination="@id/expenseList"
+            app:popUpTo="@id/addExpense"/>
     </fragment>
     <fragment
         android:id="@+id/addReminder"
@@ -23,19 +24,28 @@
         android:name="com.jp.gym.ui.dashboard.home.view.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
-<!--    <fragment-->
-<!--        android:id="@+id/gymLocation"-->
-<!--        android:name="com.jp.gym.ui.dashboard.location.GymLocationFragment"-->
-<!--        android:label="GymLocationFragment"-->
-<!--        tools:layout="@layout/fragment_gym_location" />-->
+    <fragment
+        android:id="@+id/gymLocation"
+        android:name="com.jp.gym.ui.dashboard.location.GymLocationFragment"
+        android:label="GymLocationFragment"
+        tools:layout="@layout/fragment_gym_location" />
     <fragment
         android:id="@+id/expenseList"
         android:name="com.jp.gym.ui.dashboard.expense.view.ExpenseListFragment"
         android:label="ExpenseListFragment"
-        tools:layout="@layout/fragment_expense_list" />
+        tools:layout="@layout/fragment_expense_list" >
+        <action
+            android:id="@+id/action_expenseList_to_addExpense"
+            app:destination="@id/addExpense" />
+    </fragment>
     <fragment
-        android:id="@+id/gymLocation"
+        android:id="@+id/memberList"
         android:name="com.jp.gym.ui.dashboard.member.view.MemberListFragment"
         android:label="MemberListFragment"
         tools:layout="@layout/fragment_member_list" />
+    <fragment
+        android:id="@+id/addMember"
+        android:name="com.jp.gym.ui.dashboard.member.view.AddMemberFragment"
+        android:label="AddMemberFragment"
+        tools:layout="@layout/fragment_add_member" />
 </navigation>

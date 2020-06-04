@@ -35,15 +35,6 @@ class AddExpenseViewModel(application: Application) :
         navigateTo.postValue(true)
     }
 
-    companion object {
-        @JvmStatic
-        @BindingAdapter("bind:setMaterialError")
-        fun setMaterialError(textInputLayout: TextInputLayout, textInput : String) {
-            textInputLayout.error = textInput
-        }
-    }
-
-
     private fun addExpense(
         date: String,
         trainer: String,

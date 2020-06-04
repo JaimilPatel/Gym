@@ -6,6 +6,8 @@ import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.jp.gym.R
@@ -60,12 +62,20 @@ class ExpenseListFragment : GymAppFragment() {
                 }
             }
         })
+        mViewModel.navigateTo.observe(this, Observer {
+            it?.let {
+                if(it){
+                    this.findNavController().navigate(R.id.addExpense)
+                  //  mViewModel.navigateTo.postValue(false)
+                }
+            }
+        })
     }
 
     private fun initUI() {
+        mViewModel.navigateTo.postValue(false)
         expenseListAdapter = ExpenseAdapter()
         rvExpense.adapter = expenseListAdapter
-
         val animator = rvExpense.itemAnimator
         if (animator is SimpleItemAnimator) {
             animator.supportsChangeAnimations = false

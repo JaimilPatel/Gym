@@ -35,7 +35,7 @@ class GymLocationFragment : GymAppFragment(), GoogleMap.OnMarkerClickListener {
 
     override fun initializeComponents(view: View?) {
 
-
+        (activity as DashboardActivity).mainBottomNavigation.visibility = View.GONE
 
         mapFragment = SupportMapFragment.newInstance()
 

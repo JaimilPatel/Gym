@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.jp.gym.R
 import com.jp.gym.base.GymAppActivity
 import com.jp.gym.databinding.ActivityDashboardBinding
+import com.jp.gym.ui.dashboard.location.GymLocationFragment
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class DashboardActivity : GymAppActivity() {
@@ -41,5 +42,13 @@ class DashboardActivity : GymAppActivity() {
         return true
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+         var navHostFragment = supportFragmentManager.findFragmentById(R.id.navDashboardHostFragment);
+        var currentFragment = navHostFragment?.childFragmentManager?.fragments?.get(0);
+        if(currentFragment !is GymLocationFragment){
+            mainBottomNavigation.visibility = View.VISIBLE
+        }
+    }
 
 }

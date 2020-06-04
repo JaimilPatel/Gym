@@ -5,6 +5,7 @@ import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.jp.gym.R
 import com.jp.gym.base.GymAppFragment
@@ -44,10 +45,17 @@ class MemberListFragment : GymAppFragment() {
                 }
             }
         })
+        mViewModel.navigateTo.observe(this, Observer {
+            it?.let {
+                if(it){
+                    activity?.findNavController(R.id.navDashboardHostFragment)?.navigate(R.id.addMember)
+                }
+            }
+        })
     }
 
     private fun initUI() {
-        memberListAdapter = MemberAdapter()
+        memberListAdapter = MemberAdapter(mViewModel)
         rvMember.adapter = memberListAdapter
 
         val animator = rvMember.itemAnimator

@@ -7,15 +7,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jp.gym.R
 import com.jp.gym.databinding.ItemMemberBinding
 import com.jp.gym.ui.dashboard.member.model.Member
+import com.jp.gym.ui.dashboard.member.viewmodel.MemberListViewModel
 
-class MemberAdapter : RecyclerView.Adapter<MemberAdapter.MemberViewHolder>() {
+class MemberAdapter(var viewModel : MemberListViewModel) : RecyclerView.Adapter<MemberAdapter.MemberViewHolder>() {
 
     private val memberList = ArrayList<Member>()
 
     class MemberViewHolder(val binding: ItemMemberBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun setViewItem(resMember: Member) {
+        fun setViewItem(resMember: Member, viewModel: MemberListViewModel) {
             binding.memberItemInfo = resMember
+            binding.viewModel = viewModel
         }
     }
 
@@ -33,7 +35,7 @@ class MemberAdapter : RecyclerView.Adapter<MemberAdapter.MemberViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MemberViewHolder, position: Int) {
-        holder.setViewItem(memberList[position])
+        holder.setViewItem(memberList[position],viewModel)
     }
 
     fun setMemberList(list: List<Member>) {

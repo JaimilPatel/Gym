@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
 
     <data>
 <variable
     name="memberItemInfo"
     type="com.jp.gym.ui.dashboard.member.model.Member" />
+        <variable
+            name="viewModel"
+            type="com.jp.gym.ui.dashboard.member.viewmodel.MemberListViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -57,11 +61,11 @@
                 android:id="@+id/ivPaymentStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_red_dot_24dp"
                 android:layout_margin="@dimen/_5sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                bind:setImageResource= "@{memberItemInfo.paymentStatus}"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

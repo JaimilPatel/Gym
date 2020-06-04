@@ -82,6 +82,24 @@ class MemberRepository(private var context: Context) {
         }
     }
 
+    fun fetchPaymentStatus(paymentStatus : MutableLiveData<Boolean>){
+        firestore.collection("Members")
+            .whereEqualTo("paymentStatus", "Paid")
+            .get()
+            .addOnSuccessListener { task ->
+                var paymentData = task.documents
+                for (i in 0..paymentData?.size!! - 1) {
+                    val snap = paymentData.get(i)
+                    val getStatus: String = snap?.get("paymentStatus").toString()
+                    if(getStatus.equals("Paid")){
+                        paymentStatus.postValue(true)
+                    }else{
+                        paymentStatus.postValue(false)
+                    }
+                }
+            }
+    }
+
     companion object {
         const val FIRST_NAME = "firstName"
         const val LAST_NAME = "lastName"
