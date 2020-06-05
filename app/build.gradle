@@ -55,14 +55,20 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:21.4.3'
     implementation 'com.google.firebase:firebase-firestore:21.4.3'
     implementation 'com.google.firebase:firebase-messaging:20.2.0'
+    api 'com.google.guava:guava:28.1-android'
 
     dependencies {
         def room_version = "2.2.5"
 
         implementation "androidx.room:room-runtime:$room_version"
-        annotationProcessor "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
+        kapt "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
         kapt 'android.arch.persistence.room:compiler:1.1.1'
 
+    }
+
+    dependencies {
+        def work_version = "2.3.4"
+        implementation "androidx.work:work-runtime:$work_version"
     }
 
 }

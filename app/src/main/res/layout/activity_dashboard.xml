@@ -29,6 +29,7 @@
             app:itemBackground="@color/blue"
             android:elevation="@dimen/_10sdp"
             android:layout_gravity="bottom"
+            app:layout_behavior=".utils.BottomLayoutBehavior"
             app:itemIconTint="@drawable/bottom_navigation_item_color"
             app:itemTextColor="@drawable/bottom_navigation_item_color"
             app:menu="@menu/bottombar_dashboard_menu"/>

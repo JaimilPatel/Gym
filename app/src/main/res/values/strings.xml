@@ -44,4 +44,5 @@
     <string name="add_member">Add Member</string>
     <string name="email">Email :&#160; &#160;</string>
     <string name="batch">Batch :&#160; &#160;</string>
+    <string name="enter_reminder_in_minutes">Enter Reminder In Minutes</string>
 </resources>
