@@ -50,9 +50,10 @@ class ExpenseListFragment : GymAppFragment() {
                 expenseListAdapter.setExpenseList(it)
                 rvExpense?.adapter = expenseListAdapter
                 rvProgressExpense.visibility = View.GONE
+                tvNoExpense.visibility= View.GONE
             }else{
                 rvProgressExpense.visibility = View.GONE
-                tvNoData.visibility= View.VISIBLE
+                tvNoExpense.visibility= View.VISIBLE
             }
         })
         mViewModel.expenseLocalListData.observe(this, Observer {

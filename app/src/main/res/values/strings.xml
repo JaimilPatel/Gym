@@ -23,7 +23,7 @@
     <string name="active_user">Active User</string>
     <string name="inactive_user">inActive User</string>
     <string name="due_payment">Due Payment</string>
-    <string name="rec_payment">Rec. Payment</string>
+    <string name="rec_payment">Payment</string>
     <string name="search_member">Search Member</string>
     <string name="expense_list">Expense List</string>
     <string name="search_expense">Search Expense</string>
@@ -47,4 +47,5 @@
     <string name="enter_reminder_in_minutes">Enter Reminder In Minutes</string>
     <string name="enter_reminder">Enter Reminder</string>
     <string name="no_expense_found">No Expense Found</string>
+    <string name="no_member_found">No Member Found</string>
 </resources>

@@ -7,9 +7,9 @@
     type="com.jp.gym.ui.dashboard.home.viewmodel.HomeViewModel" />
     </data>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -96,11 +96,11 @@
 
                 <GridLayout
                     android:id="@+id/gridLayout"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:columnCount="2"
                     android:columnOrderPreserved="false"
-                    android:rowCount="5"
+                    android:rowCount="2"
                     app:layout_constraintEnd_toEndOf="@+id/middleLyt"
                     app:layout_constraintStart_toStartOf="@+id/middleLyt"
                     app:layout_constraintTop_toTopOf="@+id/middleLyt">
@@ -109,8 +109,6 @@
                         style="@style/Widget.MaterialComponents.CardView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
                         android:layout_margin="@dimen/_12sdp"
                         android:background="@color/white"
                         app:cardCornerRadius="@dimen/_12sdp"
@@ -118,7 +116,7 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/activeUserInfoLyt"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="@dimen/_20sdp">
 
@@ -159,7 +157,6 @@
                         style="@style/Widget.MaterialComponents.CardView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
                         android:layout_margin="@dimen/_12sdp"
                         android:background="@color/white"
@@ -168,7 +165,7 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/inActiveUserInfoLyt"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="@dimen/_20sdp">
 
@@ -209,8 +206,6 @@
                         style="@style/Widget.MaterialComponents.CardView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
                         android:layout_margin="@dimen/_12sdp"
                         android:background="@color/white"
                         app:cardCornerRadius="@dimen/_12sdp"
@@ -218,7 +213,7 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/receivePaymentLyt"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_115sdp"
                             android:layout_height="wrap_content"
                             android:padding="@dimen/_20sdp">
 
@@ -259,7 +254,6 @@
                         style="@style/Widget.MaterialComponents.CardView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
                         android:layout_margin="@dimen/_12sdp"
                         android:background="@color/white"
@@ -309,8 +303,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/bottomLyt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_100sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/gridLayout">
@@ -319,8 +313,6 @@
                         style="@style/Widget.MaterialComponents.CardView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
                         android:layout_margin="@dimen/_12sdp"
                         android:background="@color/white"
                         app:cardCornerRadius="@dimen/_12sdp"
@@ -331,7 +323,7 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/totalExpenseLyt"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="@dimen/_10sdp">
 
@@ -374,5 +366,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>

@@ -43,9 +43,10 @@ class MemberListFragment : GymAppFragment() {
                 memberListAdapter.setMemberList(it)
                 rvMember?.adapter = memberListAdapter
                 rvProgressMember.visibility = View.GONE
+                tvNoMember.visibility= View.GONE
             }else{
                 rvProgressMember.visibility = View.GONE
-                tvNoData.visibility= View.VISIBLE
+                tvNoMember.visibility= View.VISIBLE
             }
         })
         mViewModel.navigateTo.observe(this, Observer {

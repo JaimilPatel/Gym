@@ -23,12 +23,9 @@ class DashboardActivity : GymAppActivity() {
     }
 
     override fun initializeViewComponents() {
-        val profileName = intent.getStringExtra("profileName")
 
         val navControl = findNavController(R.id.navDashboardHostFragment)
-        val bundle = Bundle()
-        bundle.putString("profileName", profileName)
-        navControl.setGraph(R.navigation.nav_dashboard_graph,bundle)
+        navControl.setGraph(R.navigation.nav_dashboard_graph)
         mainBottomNavigation?.setupWithNavController(navControl)
     }
 

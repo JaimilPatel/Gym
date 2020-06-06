@@ -67,7 +67,6 @@ class LoginFragment : GymAppFragment() {
                 sharedPreferences.saveUsername(context!!,"${FirebaseAuth.getInstance().currentUser?.displayName}")
                 sharedPreferences.saveUserId(context!!,"${FirebaseAuth.getInstance().currentUser?.uid}")
                 val intent = Intent(context, DashboardActivity::class.java)
-                intent.putExtra("profileName","${FirebaseAuth.getInstance().currentUser?.displayName}")
                 startActivity(intent)
             } else {
                 Log.i(TAG, "${response?.error?.errorCode}")

@@ -15,6 +15,8 @@ import com.jp.gym.R
 import com.jp.gym.base.GymAppActivity
 import com.jp.gym.databinding.ActivitySplashBinding
 import com.jp.gym.ui.auth.LoginActivity
+import com.jp.gym.ui.dashboard.DashboardActivity
+import com.jp.gym.utils.preference.SaveSharedPreference
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : GymAppActivity() {
@@ -59,10 +61,20 @@ class SplashActivity : GymAppActivity() {
             }
 
             override fun onAnimationEnd(animation: Animator?) {
-                val i = Intent(baseContext, LoginActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
-                startActivity(i)
-                finish()
+                var sharedPreferences = SaveSharedPreference()
+                var useId = sharedPreferences.getUserId(baseContext)
+                if(useId.isNullOrEmpty()) {
+                    val i = Intent(baseContext, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+                    startActivity(i)
+                    finish()
+                }
+                else{
+                    val i = Intent(baseContext, DashboardActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+                    startActivity(i)
+                    finish()
+                }
             }
         })
         animator.start()
