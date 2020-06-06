@@ -1,74 +1,81 @@
 package com.jp.gym.ui.dashboard.home.repository
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.jp.gym.utils.preference.SaveSharedPreference
 
-class HomeRepository {
-    var firestore = FirebaseFirestore.getInstance()
-    var getExpenseAmount : Int =0
-    var countOfActiveMembers : Int = 0
-    var countOfInActiveMember : Int = 0
-    var duePaymentAmount : Int = 0
-    var receivedPaymentAmount : Int = 0
+class HomeRepository (private var context: Context) {
+    private var firestore = FirebaseFirestore.getInstance()
+    private var getExpenseAmount: Int = 0
+    private var countOfActiveMembers: Int = 0
+    private var countOfInActiveMembers: Int = 0
+    private var duePaymentAmount: Int = 0
+    private var receivedPaymentAmount: Int = 0
+    private var countOfTotalMembers : Int = 0
     lateinit var query: Query
+    val sharedPreference = SaveSharedPreference()
+    val userId = sharedPreference.getUserId(context)
 
-    fun fetchTotalExpense(totalExpense : MutableLiveData<Int>){
-        firestore.collection("Trainer").document("12").collection("Gym Expenses")
+    fun fetchTotalMembers(totalMembers : MutableLiveData<Int>, activeUserCount: MutableLiveData<Int>, inActiveUserCount: MutableLiveData<Int>){
+
+        firestore.collection("Members")
             .get()
-            .addOnCompleteListener { getexpense->
-                if(getexpense.isSuccessful){
-                    var documentsdata = getexpense.result?.documents
+            .addOnCompleteListener { task ->
+                var document = task.result!!.documents
+                for(i in 0..document.size-1){
+                    val snap = document.get(i)
+                    val getPaymentStatus: String = snap?.get("paymentStatus").toString()
+                    if(getPaymentStatus == "Paid"){
+                        countOfActiveMembers++
+                        activeUserCount.postValue(countOfActiveMembers)
+                    }else{
+                        countOfInActiveMembers++
+                        inActiveUserCount.postValue(countOfInActiveMembers)
+                    }
+                }
+                countOfTotalMembers = task.result!!.documents.size
+                totalMembers.postValue(countOfTotalMembers)
+            }
+    }
+
+    fun fetchTotalExpense(totalExpense: MutableLiveData<Int>) {
+        firestore.collection("Trainer").document(userId).collection("Gym Expenses")
+            .get()
+            .addOnCompleteListener { getexpense ->
+                if (getexpense.isSuccessful) {
+                    val documentsdata = getexpense.result?.documents
                     for (i in 0..documentsdata?.size!! - 1) {
-                        var snap = documentsdata.get(i)
-                        var getitemexpense: String = snap?.get("expense_money").toString()
-                        Log.d("HomeRepo ","$getitemexpense")
-                        getExpenseAmount = getExpenseAmount + getitemexpense.toInt()
+                        val snap = documentsdata.get(i)
+                        val getItemExpense: String = snap?.get("expense_money").toString()
+                        Log.d("HomeRepo ", "$getItemExpense")
+                        getExpenseAmount += getItemExpense.toInt()
                         totalExpense.postValue(getExpenseAmount)
                     }
                 }
             }
     }
 
-    fun fetchUserCount(activeUserCount : MutableLiveData<Int>){
-        firestore.collection("Members")
-            .whereEqualTo("paymentStatus", "Paid")
-            .get()
-            .addOnSuccessListener { task ->
-                for (document in task) {
-                    countOfActiveMembers++
-                    activeUserCount.postValue(countOfActiveMembers)
-                }
-            }
-    }
-
-    fun fetchInActiveUserCount(inActiveUserCount : MutableLiveData<Int>){
-        firestore.collection("Members")
-            .whereEqualTo("paymentStatus", "Due")
-            .get()
-            .addOnSuccessListener { task ->
-                for (document in task) {
-                    countOfInActiveMember++
-                    inActiveUserCount.postValue(countOfInActiveMember)
-                }
-            }
-    }
-
-    fun fetchDueAndReceivedPaymentAmount(dueAmount : MutableLiveData<Int>,receivedAmount : MutableLiveData<Int>){
+//
+    fun fetchDueAndReceivedPaymentAmount(
+        dueAmount: MutableLiveData<Int>,
+        receivedAmount: MutableLiveData<Int>
+    ) {
         query = firestore.collection("Members").orderBy("amount", Query.Direction.DESCENDING)
         query.get()
             .addOnCompleteListener { tasknew ->
                 if (tasknew.isSuccessful) {
-                    var documentsdata = tasknew.result?.documents
+                    val documentsdata = tasknew.result?.documents
                     for (i in 0..documentsdata?.size!! - 1) {
-                        var snap = documentsdata.get(i)
-                        var getItemExpense: String = snap?.get("amount").toString()
-                        if(getItemExpense.toInt()<0){
-                            duePaymentAmount = duePaymentAmount + getItemExpense.toInt()
+                        val snap = documentsdata.get(i)
+                        val getItemExpense: String = snap?.get("amount").toString()
+                        if (getItemExpense.toInt() < 0) {
+                            duePaymentAmount += getItemExpense.toInt()
                             dueAmount.postValue(-duePaymentAmount)
-                        }else {
-                            receivedPaymentAmount = receivedPaymentAmount + getItemExpense.toInt()
+                        } else {
+                            receivedPaymentAmount += getItemExpense.toInt()
                             receivedAmount.postValue(receivedPaymentAmount)
                         }
                     }

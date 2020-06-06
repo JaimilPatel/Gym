@@ -12,6 +12,7 @@ import com.jp.gym.base.GymAppFragment
 import com.jp.gym.databinding.FragmentMemberListBinding
 import com.jp.gym.ui.dashboard.member.adapter.MemberAdapter
 import com.jp.gym.ui.dashboard.member.viewmodel.MemberListViewModel
+import kotlinx.android.synthetic.main.fragment_expense_list.*
 import kotlinx.android.synthetic.main.fragment_member_list.*
 
 class MemberListFragment : GymAppFragment() {
@@ -38,11 +39,13 @@ class MemberListFragment : GymAppFragment() {
     override fun initializeComponents(view: View?) {
         initUI()
         mViewModel.memberListLiveData.observe(this, Observer {
-            it?.let {
-                if (it.size > 0) {
-                    memberListAdapter.setMemberList(it)
-                    rvMember?.adapter = memberListAdapter
-                }
+            if(it!=null && it.size>0){
+                memberListAdapter.setMemberList(it)
+                rvMember?.adapter = memberListAdapter
+                rvProgressMember.visibility = View.GONE
+            }else{
+                rvProgressMember.visibility = View.GONE
+                tvNoData.visibility= View.VISIBLE
             }
         })
         mViewModel.navigateTo.observe(this, Observer {

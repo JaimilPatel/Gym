@@ -9,7 +9,8 @@ import com.jp.gym.databinding.ItemMemberBinding
 import com.jp.gym.ui.dashboard.member.model.Member
 import com.jp.gym.ui.dashboard.member.viewmodel.MemberListViewModel
 
-class MemberAdapter(var viewModel : MemberListViewModel) : RecyclerView.Adapter<MemberAdapter.MemberViewHolder>() {
+class MemberAdapter(var viewModel: MemberListViewModel) :
+    RecyclerView.Adapter<MemberAdapter.MemberViewHolder>() {
 
     private val memberList = ArrayList<Member>()
 
@@ -35,7 +36,7 @@ class MemberAdapter(var viewModel : MemberListViewModel) : RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: MemberViewHolder, position: Int) {
-        holder.setViewItem(memberList[position],viewModel)
+        holder.setViewItem(memberList[position], viewModel)
     }
 
     fun setMemberList(list: List<Member>) {

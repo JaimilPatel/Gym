@@ -1,5 +1,6 @@
 package com.jp.gym.ui.dashboard
 
+import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import androidx.databinding.ViewDataBinding
@@ -22,8 +23,12 @@ class DashboardActivity : GymAppActivity() {
     }
 
     override fun initializeViewComponents() {
+        val profileName = intent.getStringExtra("profileName")
+
         val navControl = findNavController(R.id.navDashboardHostFragment)
-        navControl.setGraph(R.navigation.nav_dashboard_graph)
+        val bundle = Bundle()
+        bundle.putString("profileName", profileName)
+        navControl.setGraph(R.navigation.nav_dashboard_graph,bundle)
         mainBottomNavigation?.setupWithNavController(navControl)
     }
 

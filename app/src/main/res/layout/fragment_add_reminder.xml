@@ -81,7 +81,7 @@
                             android:id="@+id/etEventReminder"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/enter_event_description"
+                            android:hint="@string/enter_reminder"
                             android:inputType="text"
                             android:text="@={viewModel.reminderTime}"
                             android:textAllCaps="true" />

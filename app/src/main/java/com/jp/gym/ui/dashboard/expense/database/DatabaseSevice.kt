@@ -19,6 +19,6 @@ class DatabaseService(context: Context) : QueriesInterface {
             e.printStackTrace()
             0
         }
-   }
+    }
 
 }

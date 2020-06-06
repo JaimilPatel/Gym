@@ -1,6 +1,8 @@
 package com.jp.gym.ui.dashboard.expense.database
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
 import com.jp.gym.ui.dashboard.expense.model.Expense
 
 

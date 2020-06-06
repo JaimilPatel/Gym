@@ -6,10 +6,12 @@ import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.google.firebase.auth.FirebaseAuth
 import com.jp.gym.R
 import com.jp.gym.base.GymAppFragment
 import com.jp.gym.databinding.FragmentHomeBinding
 import com.jp.gym.ui.dashboard.home.viewmodel.HomeViewModel
+import com.jp.gym.utils.preference.SaveSharedPreference
 
 class HomeFragment : GymAppFragment() {
 

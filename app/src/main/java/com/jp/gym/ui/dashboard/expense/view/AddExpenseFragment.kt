@@ -6,13 +6,10 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.jp.gym.R
 import com.jp.gym.base.GymAppFragment
 import com.jp.gym.databinding.FragmentAddExpenseBinding
 import com.jp.gym.ui.dashboard.expense.viewmodel.AddExpenseViewModel
-import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class AddExpenseFragment : GymAppFragment() {
     private lateinit var mFragmentBinding: FragmentAddExpenseBinding
@@ -36,8 +33,8 @@ class AddExpenseFragment : GymAppFragment() {
     override fun initializeComponents(view: View?) {
         mViewModel.navigateTo.observe(this, Observer {
             it?.let {
-                if(it)
-                activity?.findNavController(R.id.navDashboardHostFragment)?.navigate(R.id.expenseList)
+                if (it)
+                    activity?.findNavController(R.id.navDashboardHostFragment)?.navigate(R.id.expenseList)
             }
         })
     }

@@ -49,7 +49,7 @@ class GymLocationFragment : GymAppFragment(), GoogleMap.OnMarkerClickListener {
             googlemap.mapType = GoogleMap.MAP_TYPE_HYBRID
             googlemap.clear()
 
-            googlemap.setTrafficEnabled(true)
+            googlemap.isTrafficEnabled = true
 
             //Static Data For Latitude and Longitude
 

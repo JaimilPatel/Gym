@@ -9,16 +9,17 @@ import com.google.firebase.firestore.Query
 import com.jp.gym.ui.dashboard.expense.database.DatabaseService
 import com.jp.gym.ui.dashboard.expense.database.ExpenseData
 import com.jp.gym.ui.dashboard.expense.model.Expense
+import com.jp.gym.utils.preference.SaveSharedPreference
 
 class ExpenseRepository(private var context: Context) {
 
-    var firestore = FirebaseFirestore.getInstance()
-    lateinit var query: Query
-    lateinit var expenseArrayList: ArrayList<Expense>
-    var expenselistdata: MutableLiveData<ArrayList<Expense>> = MutableLiveData()
-    lateinit var lastvisible: DocumentSnapshot
-    lateinit var database: DatabaseService
-    lateinit var allExpenses: List<Expense>
+    private var firestore = FirebaseFirestore.getInstance()
+    private lateinit var query: Query
+    private lateinit var expenseArrayList: ArrayList<Expense>
+    private var expenseListData: MutableLiveData<ArrayList<Expense>> = MutableLiveData()
+    private lateinit var lastVisible: DocumentSnapshot
+    private lateinit var database: DatabaseService
+    private lateinit var allExpenses: List<Expense>
 
 
     fun addExpenseToDatabase(
@@ -43,28 +44,29 @@ class ExpenseRepository(private var context: Context) {
 
     fun getExpenseFromDatabase(expenseList: MutableLiveData<ArrayList<Expense>>) {
 
-
-        query = FirebaseFirestore.getInstance().collection("Trainer").document("" + "12")
+        val sharedPreference = SaveSharedPreference()
+        val userId = sharedPreference.getUserId(context)
+        query = FirebaseFirestore.getInstance().collection("Trainer").document(userId)
             .collection("Gym Expenses").orderBy("trainer_name")
 
         query.get().addOnCompleteListener { task ->
-            var documentsdata = task.result?.documents
+            val documentsdata = task.result?.documents
             expenseArrayList = ArrayList()
             for (i in 0..documentsdata?.size!! - 1) {
-                var snap = documentsdata.get(i)
-                var getitemname: String = snap?.get("expense_item").toString()
-                var getitemexpense: String = snap?.get("expense_money").toString()
-                var trainername: String = snap?.get("trainer_name").toString()
-                var expensedate: String = snap?.get("expense_date").toString()
-                var userexpense: Expense =
-                    Expense(trainername, expensedate, getitemname, getitemexpense)
+                val snap = documentsdata[i]
+                val getItemName: String = snap?.get("expense_item").toString()
+                val getItemExpense: String = snap?.get("expense_money").toString()
+                val trainerName: String = snap?.get("trainer_name").toString()
+                val expenseDate: String = snap?.get("expense_date").toString()
+                val userExpense =
+                    Expense(trainerName, expenseDate, getItemName, getItemExpense)
 
 
                 if (documentsdata.size > 0) {
-                    expenseArrayList.add(userexpense)
-                    expenselistdata.value = expenseArrayList
+                    expenseArrayList.add(userExpense)
+                    expenseListData.value = expenseArrayList
                     expenseList.postValue(expenseArrayList)
-                    lastvisible = task.result!!.documents[documentsdata?.size!! - 1]
+                    lastVisible = task.result!!.documents[documentsdata.size - 1]
                     database = DatabaseService(context)
                     allExpenses = database.getAllExpense()
                     var success: Int = -1

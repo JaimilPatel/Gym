@@ -3,11 +3,12 @@ package com.jp.gym.ui.dashboard.expense.viewmodel
 import android.app.Application
 import android.util.Log
 import android.view.View
-import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
-import com.google.android.material.textfield.TextInputLayout
 import com.jp.gym.base.GymAppViewModel
 import com.jp.gym.ui.dashboard.expense.repository.ExpenseRepository
+import com.jp.gym.utils.preference.SaveSharedPreference
+import java.text.DateFormat
+import java.util.*
 
 class AddExpenseViewModel(application: Application) :
     GymAppViewModel(application) {
@@ -28,7 +29,11 @@ class AddExpenseViewModel(application: Application) :
 
     fun onClickAddExpense(view: View) {
         Log.d("AddExpense", trainerName.value!!)
-        addExpense("1", trainerName.value!!, itemName.value!!, expenseMoney.value!!, "12")
+        val cal = Calendar.getInstance()
+        val currentDate = DateFormat.getDateInstance().format(cal.time)
+        val sharedPreference = SaveSharedPreference()
+        val userId = sharedPreference.getUserId(context)
+        addExpense(currentDate, trainerName.value!!, itemName.value!!, expenseMoney.value!!, userId)
         trainerName.postValue("")
         itemName.postValue("")
         expenseMoney.postValue("")

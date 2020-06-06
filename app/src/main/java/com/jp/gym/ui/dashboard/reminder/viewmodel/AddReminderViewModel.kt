@@ -30,7 +30,6 @@ class AddReminderViewModel(application: Application) : GymAppViewModel(applicati
 
 
     fun onClickAddReminder(view: View) {
-        Log.v("click"," Time")
         val data = Data.Builder()
             .putString("eventTitle", eventTitle.value)
             .putString("eventDescription",eventDescription.value)
@@ -39,6 +38,9 @@ class AddReminderViewModel(application: Application) : GymAppViewModel(applicati
         reminderRequest =
             OneTimeWorkRequest.Builder(ReminderWorker::class.java).setInputData(data).setInitialDelay(time.toLong(), TimeUnit.MINUTES).build()
         setReminder()
-        WorkManager.getInstance().enqueue(reminderRequest);
+        WorkManager.getInstance().enqueue(reminderRequest)
+        eventTitle.postValue("")
+        eventDescription.postValue("")
+        reminderTime.postValue("")
     }
 }

@@ -12,13 +12,18 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBuPidsYRNf6hkYbQeX9Po1TqioTvA_Wn4"/>
-        <activity android:name=".ui.dashboard.DashboardActivity"
-            android:theme="@style/AppCustomTheme">
+            android:value="AIzaSyBuPidsYRNf6hkYbQeX9Po1TqioTvA_Wn4" />
+
+        <activity
+            android:name=".ui.dashboard.DashboardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppCustomTheme"
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
         <activity
             android:name=".ui.splash.view.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppCustomTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,8 +33,9 @@
         </activity>
         <activity
             android:name=".ui.auth.LoginActivity"
-            android:theme="@style/AppCustomTheme">
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppCustomTheme"></activity>
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_launcher" />

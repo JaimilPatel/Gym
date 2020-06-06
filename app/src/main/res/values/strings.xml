@@ -45,4 +45,6 @@
     <string name="email">Email :&#160; &#160;</string>
     <string name="batch">Batch :&#160; &#160;</string>
     <string name="enter_reminder_in_minutes">Enter Reminder In Minutes</string>
+    <string name="enter_reminder">Enter Reminder</string>
+    <string name="no_expense_found">No Expense Found</string>
 </resources>

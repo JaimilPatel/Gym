@@ -20,9 +20,6 @@ import kotlinx.android.synthetic.main.activity_splash.*
 class SplashActivity : GymAppActivity() {
 
     private lateinit var mActivityBinding: ActivitySplashBinding
-    private lateinit var animation1: Animation
-    lateinit var animation2: Animation
-    lateinit var animation3: Animation
 
     override fun layoutResource(): Int {
         return R.layout.activity_splash
@@ -52,11 +49,6 @@ class SplashActivity : GymAppActivity() {
 
     @SuppressLint("PrivateResource")
     private fun animationProperties() {
-
-        animation1 = AnimationUtils.loadAnimation(this, R.anim.activity_splashlogorotate)
-        animation2 = AnimationUtils.loadAnimation(this, R.anim.activity_splashlogoantirotate)
-        animation3 = AnimationUtils.loadAnimation(this, R.anim.abc_fade_in)
-
         //Start Animation
 
         val animator = ObjectAnimator.ofFloat(ivSplashLogo, View.ROTATION, -360f, 0f)

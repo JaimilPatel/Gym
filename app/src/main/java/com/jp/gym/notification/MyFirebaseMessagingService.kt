@@ -19,13 +19,12 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     var CHANNEL_ID = "FirebaseNotification"
 
     override fun onNewToken(p0: String) {
-        Log.d("$CHANNEL_ID","$p0")
+        Log.d(CHANNEL_ID, p0)
         super.onNewToken(p0)
     }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
-        Log.d("$CHANNEL_ID","Done")
         createNotification(
             remoteMessage.notification!!.title!!,
             remoteMessage.notification!!.body!!
